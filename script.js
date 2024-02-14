@@ -32,6 +32,13 @@ const funny_quotes = [
   "Andi Mandi Falamko Dandi.",
   "Mukh herya cha aafno.",
 ];
+const message= [`On this special day of love, I want to express how grateful I am to have you in my life. Your presence fills my days with joy, your laughter brightens my darkest moments, and your love warms my heart like nothing else.
+
+With each passing day, my love for you grows stronger, deeper, and more profound. You are the one who makes every moment special, every memory cherished, and every dream worth pursuing.
+
+As we celebrate Valentine's Day together, I want you to know that you mean the world to me. You are my rock, my inspiration, and my greatest blessing. I cherish every moment spent with you, and I look forward to creating countless more beautiful memories together.
+
+Happy Valentine's Day, my love. Here's to us and to a future filled with endless love, laughter, and happiness.`]
 
 let funnybtn = [
   "Are you Sure ?",
@@ -111,6 +118,7 @@ const createNewButton = () => {
   });
 };
 const modalfunction = function () {
+  if(nofn().clicked ==true){
   const newtext = document.createElement("p");
   const randomindex = `${Math.trunc(Math.random() * funny_quotes.length)}`;
   newtext.classList.add("funnyq");
@@ -122,8 +130,25 @@ const modalfunction = function () {
       modal.style.display = "none";
     }
   };
+  }
+  else{
+  const newtext = document.createElement("p");
+  newtext.classList.add("funnyq");
+  newtext.textContent = message;
+  text.appendChild(newtext);
+
+  window.onclick = function (e) {
+    if (e.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+    
+    
+  }
+  
   closefn();
 };
+
 const closefn = function () {
   close.addEventListener("click", () => {
     modal.style.display = "none";
