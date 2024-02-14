@@ -131,7 +131,7 @@ const modalfunction = function () {
     }
   };
   }
-  else{
+  else if(yesfn().clicked ==true) {
   const newtext = document.createElement("p");
   newtext.classList.add("funnyq");
   newtext.textContent = message;
