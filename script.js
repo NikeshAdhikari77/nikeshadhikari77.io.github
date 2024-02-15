@@ -118,7 +118,7 @@ const createNewButton = () => {
   });
 };
 const modalfunction = function () {
-  if(nofn().clicked ==true){
+ 
   const newtext = document.createElement("p");
   const randomindex = `${Math.trunc(Math.random() * funny_quotes.length)}`;
   newtext.classList.add("funnyq");
@@ -130,8 +130,60 @@ const modalfunction = function () {
       modal.style.display = "none";
     }
   };
-  }
-  else if(yesfn().clicked ==true) {
+  const secondmodalfn = function () {
+  // Get the message text
+  const message = `Dear Rose,
+
+  I hope this letter express the depth of my emotions and what our relationship means to me.
+  
+  Rose, I adore you for who you are. The way your hair sways in the breeze mesmerizes me, and your lively conversations always draw me in. Your care and concern for me make me feel incredibly fortunate, as if I wish to be born as your child in my next life. Even your occasional anger serves as a source of motivation for me to strive for better in my own life. Your dedication to your career inspires me to find my own purpose and strive for achievement. You are the reason I feel fulfilled as a man.
+  
+  This letter isn't just a formality; it's a genuine expression of love. It represents the voice of my heart and how lucky I feel to have you in my life. While there are countless things I could say, the most important is simply this: I love being with you.
+  
+  With all my love, Nikesh 
+   
+  
+  `;
+
+  // Get reference to the modal and the text container
+  const modal = document.querySelector(".modal");
+  const text = document.querySelector(".text");
+
+  // Clear any existing content in the text container
+  text.innerHTML = "";
+
+  // Create a paragraph element to hold the typewriter effect
+  const newtext = document.createElement("p");
+  newtext.classList.add("funnyq");
+
+  let index = 0;
+
+  // Function to add text character by character like a typewriter
+  const typeWriter = () => {
+    if (index < message.length) {
+      newtext.textContent += message.charAt(index);
+      index++;
+      setTimeout(typeWriter, 1); // Adjust the typing speed (milliseconds)
+    } else {
+      // Typing complete, append the new text to the modal
+      text.appendChild(newtext);
+
+      // Close modal when clicking outside
+      window.onclick = function (e) {
+        if (e.target == modal) {
+          modal.style.display = "none";
+        }
+      };
+
+      closefn();
+    }
+  };
+
+  typeWriter(); // Start the typewriter effect
+  modal.style.display = "block";
+  // Display the modal
+};
+ 
   const newtext = document.createElement("p");
   newtext.classList.add("funnyq");
   newtext.textContent = message;
@@ -144,7 +196,7 @@ const modalfunction = function () {
   };
     
     
-  }
+  
   
   closefn();
 };
